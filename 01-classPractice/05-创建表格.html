@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div>
+			姓名：<input id="nameText" type="text"><br> 年龄：
+			<input id="ageText" type="text">
+			<input type="button" value="添加学生">
+			<input type="button" value="删除一行">
+
+		</div>
+		<table id="stuInfo" width="200" border="1">
+			<tbody>
+				<tr>
+					<td>姓名</td>
+					<td>年龄</td>
+				</tr>
+				<tr>
+					<td>江泽民</td>
+					<td>50</td>
+				</tr>
+				<tr>
+					<td>芙蓉</td>
+					<td>30</td>
+				</tr>
+				<tr>
+					<td>凤姐</td>
+					<td>28</td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+	<script type="text/javascript">
+		//获取元素
+		var oStuInfo = document.getElementById('stuInfo');
+		var aInp = document.getElementsByTagName('input');
+
+		//添加事件----添加学生
+		aInp[2].onclick = function() {
+
+			//事件改编的属性获取
+			var uName = aInp[0].value;
+			var uAge = aInp[1].value;
+
+			//装属性的td,,,th
+			var tdName = document.createElement('td');
+			tdName.innerHTML = uName;
+			var tdAge = document.createElement('td');
+			tdAge.innerHTML = uAge;
+			var thNa = document.createElement('tr');
+
+			//添加进去
+			thNa.appendChild(tdName);
+			thNa.appendChild(tdAge);
+			oStuInfo.children[0].appendChild(thNa);
+
+		}
+	</script>
+
+</html>
